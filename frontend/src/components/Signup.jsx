@@ -56,7 +56,7 @@ export default function Signup() {
     axios
       .post("http://localhost:3001/signup", { user, email, password })
       .then((res) => {
-        if (res.data.message !== "User created") {
+        if (res.status !== 201) {
           alert(res.data.message);
         } else {
           alert("Successfully signed up");
@@ -67,7 +67,7 @@ export default function Signup() {
         }
       })
       .catch((err) => {
-        console.log("error");
+        alert(err.response.data.messsage)
       });
   };
   return (

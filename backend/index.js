@@ -26,6 +26,7 @@ app.use((req, res) => {
 
 app.use((err, req, res, next) => {
   res.status(500).json({ message: "Something went wrong" });
+  console.log(err)
 });
 
 app.listen(3001, async () => {
